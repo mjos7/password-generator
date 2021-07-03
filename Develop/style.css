@@ -43,7 +43,7 @@ header {
 }
 
 .card-header::after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 100%;
   background: #e7e9eb;
@@ -59,7 +59,7 @@ header {
 }
 
 .card-footer::before {
-  content: " ";
+  content: ' ';
   display: block;
   width: 100%;
   background: #e7e9eb;
@@ -67,14 +67,14 @@ header {
 }
 
 .card-footer::after {
-  content: " ";
+  content: ' ';
   display: block;
   clear: both;
 }
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: rgb(255, 113, 90);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
@@ -86,6 +86,9 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(225, 90, 69);
 }
 
 button[disabled] {
