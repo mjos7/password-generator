@@ -1,7 +1,7 @@
 // Assignment code here
 
 // USER CRITERIA STORED HERE
-var userCriteria = {
+const userCriteria = {
   passwordLength: 8,
   confirmLowercase: false,
   confirmUppercase: false,
@@ -40,37 +40,40 @@ function selectCriteria() {
 
 selectCriteria();
 
-// function generatePassword(length, lower, upper, symbol, length) {
-//   let generatedPassword = '';
-//   const typesCount = length + lower + upper + number + symbol;
-//   console.log('typesCount: ', typesCount);
-//   const typesArr = [
-//     { length },
-//     { lower },
-//     { upper },
-//     { number },
-//     { symbol },
-//   ].filter(item => Object.values(item)[0]);
+function generatePassword(length, lower, upper, symbol, length) {
+  let generatedPassword = '';
+  const typesCount = length + lower + upper + number + symbol;
+  const typesArr = [
+    { length },
+    { lower },
+    { upper },
+    { number },
+    { symbol },
+  ].filter(item => Object.values(item)[0]);
 
-//   if (typesCount === 0) {
-//     return '';
-//   }
-//   for (let i = 0; i < length; i += typesCount) {
-//     typesArr.forEach(type => {
-//       const funcName = Object.keys(type)[0];
+  // If no criteria selected
+  if (typesCount === 0) {
+    return '';
+  }
 
-//       generatePassword += randomFunc[funcName]();
-//     });
-//   }
-// }
+  for (let i = 0; i < length; i += typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type)[0];
 
-generatePassword(
-  userCriteria.passwordLength,
-  userCriteria.confirmLowercase,
-  userCriteria.confirmUppercase,
-  userCriteria.confirmNumeric,
-  userCriteria.confirmSymbols
-);
+      generatedPassword += randomFunc[funcName]();
+    });
+  }
+  const finalPassword = generatedPassword.slice(0, length);
+  return finalPassword;
+}
+
+// generatePassword(
+//   userCriteria.passwordLength,
+//   userCriteria.confirmLowercase,
+//   userCriteria.confirmUppercase,
+//   userCriteria.confirmNumeric,
+//   userCriteria.confirmSymbols
+// );
 
 // Loop if answer is outside the parameters
 // while (
@@ -113,6 +116,8 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
+
+console.log(finalPassword);
 
 /* Comment start
 
