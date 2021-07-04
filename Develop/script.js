@@ -154,3 +154,23 @@ function generatePassword() {
     );
   }
 
+  // store parameters in password based on user confirmed criteria
+  var passwordCharacters = [];
+
+  if (confirmSymbols) {
+    passwordCharacters = passwordCharacters.concat(randomSymbol);
+  }
+
+  if (confirmNumbers) {
+    passwordCharacters = passwordCharacters.concat(randomNumber);
+  }
+
+  if (confirmLowercase) {
+    passwordCharacters = passwordCharacters.concat(randomLower);
+  }
+
+  if (confirmUppercase) {
+    passwordCharacters = passwordCharacters.concat(randomUpper);
+  }
+
+ 
