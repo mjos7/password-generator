@@ -30,6 +30,12 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -38,8 +44,8 @@ header {
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
-  max-width: 800px;
-  padding: 30px 40px;
+  max-width: 600px;
+  padding: 70px 40px;
 }
 
 .card-header::after {

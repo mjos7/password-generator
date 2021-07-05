@@ -4,6 +4,8 @@
 
 document.querySelector('#generate').addEventListener('click', writePassword);
 
+var randomNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
 var randomLower = [
   'a',
   'b',
@@ -62,8 +64,6 @@ var randomUpper = [
   'Z',
 ];
 
-var randomNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 var randomSymbol = [
   '!',
   '#',
@@ -99,9 +99,9 @@ var randomSymbol = [
 ];
 
 var passwordLength = '';
+var confirmNumbers;
 var confirmLowercase;
 var confirmUppercase;
-var confirmNumbers;
 var confirmSymbols;
 
 // Length of password prompt
@@ -170,8 +170,6 @@ function generatePassword() {
     password = password.concat(randomUpper);
   }
 
-  // console.log(password);
-
   // Empty string to be filled based on for loop selecting random characters from the array
   var randomPassword = '';
 
@@ -181,7 +179,7 @@ function generatePassword() {
   return randomPassword;
 }
 
-// Writes password to the #password input
+// Write password to the #password input
 function writePassword() {
   var finalPassword = generatePassword();
   var passwordText = document.querySelector('#password');
