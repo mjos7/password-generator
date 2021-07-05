@@ -111,15 +111,12 @@ function generatePassword() {
   );
 
   // check if password meets length criteria
-  while (passwordLength < 8 || passwordLength >= 128) {
+  while (passwordLength < 8 || passwordLength > 128) {
     alert('Passwords must be between 8 and 128 characters. Please try again');
     var passwordLength = prompt(
       'How many characters would you like your password to be?'
     );
   }
-
-  // confirm password length with user
-  alert(`Your password will have ${passwordLength} characters`);
 
   // Determine password criteria
   var confirmLowercase = confirm(
@@ -155,22 +152,52 @@ function generatePassword() {
   }
 
   // store parameters in password based on user confirmed criteria
-  var passwordCharacters = [];
+  var password = [];
 
   if (confirmSymbols) {
-    passwordCharacters = passwordCharacters.concat(randomSymbol);
+    password = password.concat(randomSymbol);
   }
 
   if (confirmNumbers) {
-    passwordCharacters = passwordCharacters.concat(randomNumber);
+    password = password.concat(randomNumber);
   }
 
   if (confirmLowercase) {
-    passwordCharacters = passwordCharacters.concat(randomLower);
+    password = password.concat(randomLower);
   }
 
   if (confirmUppercase) {
-    passwordCharacters = passwordCharacters.concat(randomUpper);
+    password = password.concat(randomUpper);
   }
 
- 
+  // console.log(password);
+
+  // Empty string to be filled based on for loop selecting random characters from the array
+  var randomPassword = '';
+
+  for (var i = 0; i < passwordLength; i++) {
+    randomPassword += password[Math.floor(Math.random() * password.length)];
+  }
+  return randomPassword;
+}
+
+// Writes password to the #password input
+function writePassword() {
+  var finalPassword = generatePassword();
+  var passwordText = document.querySelector('#password');
+
+  passwordText.value = finalPassword;
+}
+
+// Copy code to clipboard
+
+var copy = document.querySelector('#copy');
+copy.addEventListener('click', function () {
+  copyPassword();
+});
+
+function copyPassword() {
+  document.getElementById('password').select();
+  document.execCommand('Copy');
+  alert('Password copied to clipboard!');
+}
