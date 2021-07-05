@@ -4,99 +4,25 @@
 
 document.querySelector('#generate').addEventListener('click', writePassword);
 
-var randomNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// Storing All Random Arrays
+var randomNumber = [];
+var randomLower = [];
+var randomUpper = [];
+var randomSymbol = [];
 
-var randomLower = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-];
+// Function to pull characters from CharCode
 
-var randomUpper = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
+function getCharCode(charcode1, charcodeLength, randomArray) {
+  for (let i = 0; i < charcodeLength; i++) {
+    randomArray.push(String.fromCharCode(charcode1++));
+  }
+}
 
-var randomSymbol = [
-  '!',
-  '#',
-  '$',
-  '%',
-  '&',
-  "'",
-  '(',
-  ')',
-  '*',
-  '+',
-  ',',
-  '-',
-  '.',
-  '/',
-  ':',
-  ';',
-  '<',
-  '=',
-  '>',
-  '?',
-  '@',
-  '[',
-  '\\',
-  ']',
-  '^',
-  '_',
-  '`',
-  '{',
-  '|',
-  '}',
-  '~',
-];
+// Pass arguments to getCharCode function
+getCharCode(48, 10, randomNumber);
+getCharCode(97, 26, randomLower);
+getCharCode(65, 26, randomUpper);
+getCharCode(33, 15, randomSymbol);
 
 var passwordLength = '';
 var confirmNumbers;
@@ -185,17 +111,4 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
 
   passwordText.value = finalPassword;
-}
-
-// Copy code to clipboard
-
-var copy = document.querySelector('#copy');
-copy.addEventListener('click', function () {
-  copyPassword();
-});
-
-function copyPassword() {
-  document.getElementById('password').select();
-  document.execCommand('Copy');
-  alert('Password copied to clipboard!');
 }
