@@ -1,10 +1,6 @@
 // The Password generator will provide a password with 8-50  characters based on criteria the user specifies.
 
-//Variables and event listeners
-
-document.querySelector('#generate').addEventListener('click', writePassword);
-
-// Storing All Random Arrays
+// Storing all random arrays
 var randomNumber = [];
 var randomLower = [];
 var randomUpper = [];
@@ -24,6 +20,8 @@ getCharCode(97, 26, randomLower);
 getCharCode(65, 26, randomUpper);
 getCharCode(33, 15, randomSymbol);
 
+// Storing all user password criteria
+
 var passwordLength = '';
 var confirmNumbers;
 var confirmLowercase;
@@ -36,7 +34,7 @@ function generatePassword() {
     'How many characters would you like your password to be? (Choose between 8 and 128)'
   );
 
-  // check if password meets length criteria
+  // Check if password meets length criteria
   while (passwordLength < 8 || passwordLength > 128) {
     alert('Passwords must be between 8 and 128 characters. Please try again');
     var passwordLength = prompt(
@@ -55,7 +53,7 @@ function generatePassword() {
   var confirmSymbols = confirm(
     'Click OK to confirm if you would like to include symbols'
   );
-  // Loop if answer is outside the parameters
+  // Loop if answer is outside these parameters
   while (
     confirmUppercase === false &&
     confirmLowercase === false &&
@@ -77,7 +75,7 @@ function generatePassword() {
     );
   }
 
-  // store parameters in password based on user confirmed criteria
+  // Store parameters in password based on user confirmed criteria
   var password = [];
 
   if (confirmSymbols) {
@@ -96,7 +94,7 @@ function generatePassword() {
     password = password.concat(randomUpper);
   }
 
-  // Empty string to be filled based on for loop selecting random characters from the array
+  // Empty password string to be filled based on for loop selecting random characters from the array
   var randomPassword = '';
 
   for (var i = 0; i < passwordLength; i++) {
@@ -104,6 +102,10 @@ function generatePassword() {
   }
   return randomPassword;
 }
+
+//Click event listener
+
+document.querySelector('#generate').addEventListener('click', writePassword);
 
 // Write password to the #password input
 function writePassword() {
