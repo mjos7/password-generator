@@ -6,7 +6,7 @@ Git Page - Deployed Application
 https://mjos7.github.io/password-generator
 
 Screenshot of Mockup
-![Screenshot of Mockup](./assets/images/password-generator-mockup.png)
+![Screenshot of Mockup](./assets/password-generator-mockup.png)
 
 ## Description
 
