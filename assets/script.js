@@ -1,5 +1,3 @@
-// The Password generator will provide a password with 8-50  characters based on criteria the user specifies.
-
 // Storing all random arrays
 var randomNumber = [];
 var randomLower = [];
