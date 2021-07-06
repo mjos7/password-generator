@@ -36,20 +36,20 @@ function generatePassword() {
   while (passwordLength < 8 || passwordLength > 128) {
     alert('Passwords must be between 8 and 128 characters. Please try again');
     var passwordLength = prompt(
-      'How many characters would you like your password to be?'
+      `How many characters would you like your password to be?`
     );
   }
 
   // Determine password criteria
   var confirmLowercase = confirm(
-    'Click OK if you would like to include lowercase letters'
+    `Click OK if you would like to include LOWERCASE LETTERS`
   );
   var confirmUppercase = confirm(
-    'Click OK if you would like to include uppercase letters'
+    `Click OK if you would like to include UPPERCASE LETTERS`
   );
-  var confirmNumbers = confirm('Click OK if you would like to include numbers');
+  var confirmNumbers = confirm(`Click OK if you would like to include NUMBERS`);
   var confirmSymbols = confirm(
-    'Click OK to confirm if you would like to include symbols'
+    `Click OK to confirm if you would like to include SYMBOLS`
   );
   // Loop if answer is outside these parameters
   while (
@@ -58,18 +58,18 @@ function generatePassword() {
     confirmSymbols === false &&
     confirmNumbers === false
   ) {
-    alert('You must choose at least one parameter');
-    var confirmSymbols = confirm(
-      'Click OK to confirm if you would like to include special characters'
-    );
-    var confirmNumbers = confirm(
-      'Click OK to confirm if you would like to include numeric characters'
-    );
+    alert(`You must choose at least one parameter`);
     var confirmLowercase = confirm(
-      'Click OK to confirm if you would like to include lowercase characters'
+      `Click OK if you would like to include LOWERCASE LETTERS`
     );
     var confirmUppercase = confirm(
-      'Click OK to confirm if you would like to include uppercase characters'
+      `Click OK if you would like to include UPPERCASE LETTERS`
+    );
+    var confirmNumbers = confirm(
+      `Click OK if you would like to include NUMBERS`
+    );
+    var confirmSymbols = confirm(
+      `Click OK to confirm if you would like to include SYMBOLS`
     );
   }
 
